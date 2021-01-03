@@ -1,4 +1,4 @@
-var stompClient = null;
+let stompClient = null;
 
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/hm_websocket');
+    let socket = new SockJS('/hm_websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
